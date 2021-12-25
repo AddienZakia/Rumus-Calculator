@@ -12,7 +12,7 @@ Calculator dengan tema Neumorphism yang berfungsi sebagai menghitung Luas Permuk
 
 - Fitur
   - Dark mode
-  - Dapat melihat proses/rumus penyelesaian
+  - Dapat melihat proses/cara penyelesaian
   - Bertema Neumorphism
   - Responsive
 
