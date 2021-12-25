@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./public/tailwind.css" />
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+
+    <meta name="keywords" content="calculator, rumus, matematika, mtk"/>
+    <meta name="description" content="Calculator dengan tema Neumorphism yang berfungsi sebagai menghitung Luas Permukaan, Keliling, Volume pada Bangun Ruang dan Bangun Datar">
+    <link rel="shortcut icon" type="image/ico" href="/image/calculator.ico" />
+    <link rel="apple-touch-icon" href="image/calculator.ico">
+
+    <title>Rumus Calculator</title>
+  </head>
+  <body>
+    <!-- background -->
+    <div class="bg-base dark:bg-darkBase w-screen h-screen md:flex md:items-center md:justify-center">
+
+      <!-- Calculator -->
+      <div class="bg-white dark:bg-blue-100 shadow-neumorphism dark:shadow-darkNeumorphism flex flex-col h-screen rounded-xl overflow-hidden md:w-3/4 md:h-per90 lg:w-2/4">
+
+        <!-- Head Calculator -->
+        <div class="h-1/3 w-full relative bg-white dark:bg-blue-100">
+
+          <!-- Header -->
+          <div class="flex items-center justify-between">
+            <div class="flex items-center">
+              <i onclick="infoClick(true)" class="far fa-question-circle text-2xl m-2 text-gray-700 cursor-pointer duration-200 hover:text-biruMuda"></i>
+              <p id="pilihan" class="font-bold text-gray-500 tracking-wide"></p>
+            </div>
+            <div class="flex items-center m-1">
+              <div id='selesai' onclick="lihatPenyelesaian()" class="hidden px-3 py-1 text-gray-500 font-bold rounded-md bg-base shadow-neumorphism cursor-pointer dark:bg-darkBase dark:text-gray-200 dark:shadow-darkNeumorphism">
+                Lihat Penyelesaian
+              </div>
+              <i onclick="darkMode()" id="dark" class="fas fa-moon m-2 text-xl text-gray-700 cursor-pointer duration-200 hover:text-biruMuda dark:text-yellow-500 dark:hover:text-gray-700"></i>
+            </div>
+          </div>
+
+          <!-- Output & history -->
+          <div class="outputText absolute right-5 bottom-3 text-right hidden">
+            <p id="history" class="tracking-wide font-bold text-gray-500"></p>
+            <p id="output" class="text-5xl font-bold">0</p>
+          </div>
+
+        </div>
+
+        <!-- Body calculator -->
+        <div id="bodyCalc" class="grid grid-cols-4 text-center shadow-neumorphism w-full h-2/3 rounded-t-xl overflow-hidden p-3 bg-base dark:bg-darkBase">
+          <div class="relative col-start-1 col-end-5 shadow-neumorphism flex items-center justify-center py-5 mx-2 sm:mx-4 my-2 rounded-xl font-bold text-gray-500 dark:shadow-darkNeumorphism">
+            <p id="soal" class="text-sm sm:text-md dark:text-gray-200">Pilih bangun ruang/datar yang ingin kamu cari</p>
+            <!-- back & next -->
+            <p class="seconds absolute bottom-2 left-5 text-sm text-pink-600 hidden cursor-pointer">← Back</p>
+            <p class="seconds absolute bottom-2 right-5 text-sm text-biruMuda hidden cursor-pointer">Next →</p>
+          </div>
+          <p class="buttonRun bentuk text-biruMuda">Persegi<span class="typeStyle">(Datar)</span></p>
+          <p class="buttonRun bentuk text-biruMuda">Persegi Panjang<span class="typeStyle">(Datar)</span></p>
+          <p class="buttonRun bentuk text-biruMuda">Segitiga<span class="typeStyle">(Datar)</span></p>
+          <p class="buttonRun bentuk text-biruMuda">Lingkaran<span class="typeStyle">(Datar)</span></p>
+          <p class="buttonRun bentuk text-biruMuda">Layang<span class="typeStyle">(Datar)</span></p>
+          <p class="buttonRun bentuk text-biruMuda">Jajar genjang<span class="typeStyle">(Datar)</span></p>
+          <p class="buttonRun bentuk text-biruMuda">Belah Ketupat<span class="typeStyle">(Datar)</span></p>
+          <p class="buttonRun bentuk text-biruMuda">Trapesium<span class="typeStyle">(Datar)</span></p>
+          <p class="buttonRun bentuk text-pink-600">Balok<span class="typeStyle">(Ruang)</span></p>
+          <p class="buttonRun bentuk text-pink-600">Kubus<span class="typeStyle">(Ruang)</span></p>
+          <p class="buttonRun bentuk text-pink-600">Kerucut<span class="typeStyle">(Ruang)</span></p>
+          <p class="buttonRun bentuk text-pink-600">Tabung<span class="typeStyle">(Ruang)</span></p>
+          <p class="buttonRun bentuk text-pink-600">Bola<span class="typeStyle">(Ruang)</span></p>
+          <p class="buttonRun bentuk text-pink-600">Limas Segitiga<span class="typeStyle">(Ruang)</span></p>
+          <p class="buttonRun bentuk text-pink-600">Limas Segiempat<span class="typeStyle">(Ruang)</span></p>
+          <p class="buttonRun bentuk text-pink-600">Prisma Segitiga<span class="typeStyle">(Ruang)</span></p>
+        </div>
+      </div>
+    </div>
+
+    <div id="info" class="hidden">
+      <div onclick="infoClick(false)" class="absolute inset-0 bg-hitamTransparent"></div>
+      <div class="absolute inset-0 m-auto z-10 bg-white dark:bg-blue-100 w-10/12 h-3/5 text-justify overflow-scroll overflow-x-hidden p-10 rounded-lg scrollbar scrollbar-thumb-gray-200 dark:scrollbar-thumb-white hover:scrollbar-thumb-gray-300 dark:hover:scrollbar-thumb-gray-200 scrollbar-thumb-rounded-md">
+        <p onclick="infoClick(false)" class="absolute top-0 left-0 mx-3 text-black text-4xl font-bold cursor-pointer transition duration-100 hover:text-gray-400">&times;</p>
+        <div id="teksInfo">
+          <p class="text-lg text-center font-bold">Cara menggunakannya</p>
+          <div class="divide-y dark:divide-darkBase dark:divide-opacity-20 font-bold">
+            <p class="py-3">1. Pertama pilih bangun ruang atau bangun datar yang ingin 
+              kamu cari, jika sudah maka akan muncul nama bangun 
+              yang kamu pilih di atas</p>
+            <p class="py-3">2. Pilih opsi yang ingin kamu gunakan, luas permukaan atau
+              keliling(bangun datar) atau volume(bangun ruang), jika 
+              kamu tidak memilih opsi terlebih dahulu maka soal akan 
+              bakal berubah menjadi <span class="text-red-500">warna merah</span></p>
+            <p class="py-3">3. Ikutin apa yang diminta di kolom bagian soal, dan tentukan 
+              angka yang kamu mau</p>
+            <p class="py-3">4. klik "Next" untuk lanjut ke pertanyaan selanjutnya, dan "Back" untuk kembali ke pertanyaan sebelumnya</p>
+            <p class="py-3">5. Jika sudah di pertanyaan terakhir, klik "=" untuk melihat 
+              hasil, pertanyaan terakhir bisa dilihat ketika  "Next" sudah 
+              tidak ada</p>
+            <p class="py-3">6. Hasil sudah terlihat, klik "Lihat penyelesaian" untuk melihat
+              cara penyelesaian</p>
+          </div>
+          <p class="font-bold text-center my-5 ">- Made with love by <span class="text-pink-600 transition duration-300 hover:text-red-900"><a href="https://github.com/AddienZakia" target="blank" >Addien Zakia</a></span> -</p>
+        </div>
+      </div> 
+    </div>
+    <script src="./public/index.js"></script>
+    <script src="./public/rumus.js"></script>
+    <script src="./public/script.js"></script>
+  </body>
+</html>

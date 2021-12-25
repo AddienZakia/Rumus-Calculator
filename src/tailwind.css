@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  font-family: 'Quicksand', sans-serif;
+}
+
+.bentuk {
+  @apply w-16 h-16 sm:text-sm sm:w-24 sm:h-24 md:w-28 text-xs place-content-center place-self-center flex flex-col rounded-xl cursor-pointer shadow-neumorphism hover:shadow-neumorphismHover dark:shadow-darkNeumorphism dark:hover:shadow-darkNeumorphismHover shadow-neumorphism font-bold md:text-sm;
+}
+
+.typeStyle {
+  @apply text-xs font-bold text-gray-500 dark:text-gray-200;
+}
