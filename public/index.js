@@ -2,7 +2,7 @@ let utils = {
   store: document.getElementById("bodyCalc").innerHTML,
   storeInfo: document.getElementById("teksInfo").innerHTML,
   storeInfoClass:
-    "h-full text-lg font-bold flex justify-center items-center".split(" "),
+    "h-full text-lg font-bold flex justify-center items-center break-all".split(" "),
   number: [
     7,
     8,
