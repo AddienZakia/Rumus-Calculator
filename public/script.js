@@ -98,7 +98,12 @@ function basicFunction() {
         );
         break;
       case "=":
-        elements[i].classList.add("text-green-500", "text-xl", "md:text-3xl");
+        elements[i].classList.add(
+          "text-green-500",
+          "text-xl",
+          "md:text-3xl",
+          "sm:text-xl"
+        );
         elements[i].onclick = equalFunction;
         break;
       default:
