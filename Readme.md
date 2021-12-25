@@ -16,8 +16,4 @@ Calculator dengan tema Neumorphism yang berfungsi sebagai menghitung Luas Permuk
   - Bertema Neumorphism
   - Responsive
 
-Credit:
-
-- Web icon: [flaticon](https://www.flaticon.com/premium-icon/calculator_548353?term=calculator&page=1&position=9&page=1&position=9&related_id=548353&origin=search)
-
 ### Demo: https://addienzakia.github.io/Rumus-Calculator/
