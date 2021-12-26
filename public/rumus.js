@@ -509,7 +509,7 @@ class Intruction {
     return {
       luas: this.text(["Jari-jari"], "Bola"),
       keliling: this.text(["Jari-jari"], "Bola"),
-      history: this.history(["R"], ["R"]),
+      history: this.history(["Jari-jari"], ["Jari-jari"]),
     };
   }
 
